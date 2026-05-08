@@ -2,21 +2,24 @@ import express from 'express';
 import dotenv from 'dotenv';
 import authRoutes from './routes/authRoutes';
 import pool from './config/db';
+import { QueryResult } from 'pg';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 
-pool.query('SELECT NOW()', (err, res) => {
+pool.query('SELECT NOW()', (err: Error | null, res: QueryResult<any>) => {
   if (err) {
-    console.error('Database connection failed:', err.message);
+    console.error('❌ Database connection failed:', err.message);
   } else {
-    console.log('Database connected at:', res.rows[0].now);
+    console.log('✅ Database connected at:', res.rows[0].now);
   }
 });
 
+// Routes
 app.use('/api/auth', authRoutes);
 
+// Start server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
