@@ -12,7 +12,7 @@
   padding: 3rem;
   border-radius: 3rem;
   width: 100%;
-  max-width: 480px;
+  max-width: 400px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
   border: 1px solid var(--text-slate-300);
 }
@@ -71,14 +71,15 @@
 
 .inputField {
   width: 100%;
-  padding: 1rem 1.25rem 1rem 4rem;
-  border-radius: 1rem;
-  background-color: var(--bg-white);
-  border: 2px solid transparent;
-  font-weight: 700;
+  padding: 0.5rem 0.75rem 0.5rem 4rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
   color: #1e293b;
+  background-color: #f8fafc;
   outline: none;
-  transition: all 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .inputField:focus {
