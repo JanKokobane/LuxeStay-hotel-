@@ -25,33 +25,31 @@ export default function Auth() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  // src/api.ts
-const BASE_URL = 'https://luxestay-hotel-gppc.onrender.com/api/auth';
+  const BASE_URL = 'https://luxestay-hotel-gppc.onrender.com/api/auth';
 
-const authApi = {
-  signup: async (formData: { name: string; email: string; password: string }) => {
-    const res = await fetch(`${BASE_URL}/register`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Signup failed');
-    return data;
-  },
+  const authApi = {
+    signup: async (formData: { name: string; email: string; password: string }) => {
+      const res = await fetch(`${BASE_URL}/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Signup failed');
+      return data;
+    },
 
-  login: async (formData: { email: string; password: string }) => {
-    const res = await fetch(`${BASE_URL}/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Login failed');
-    return data;
-  },
-};
-
+    login: async (formData: { email: string; password: string }) => {
+      const res = await fetch(`${BASE_URL}/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Login failed');
+      return data;
+    },
+  };
 
   const validateEmail = (email: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.toLowerCase());
@@ -79,24 +77,28 @@ const authApi = {
 
     setLoading(true);
     try {
-      let response;
       if (isLogin) {
-        response = await authApi.login({
+        const response = await authApi.login({
           email: formData.email.trim(),
           password: formData.password.trim(),
         });
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('user', JSON.stringify(response.user));
+        setLoading(false);
+        // ✅ Redirect to profile page after login
+        navigate('/profile');
+        window.location.reload();
       } else {
-        response = await authApi.signup({
+        await authApi.signup({
           name: formData.name.trim(),
           email: formData.email.trim(),
           password: formData.password.trim(),
         });
+        setLoading(false);
+        setIsLogin(true);
+        setFormData({ email: '', password: '', confirmPassword: '', name: '' });
+        setError('Account created successfully. Please log in.');
       }
-      localStorage.setItem('token', response.token);
-      localStorage.setItem('user', JSON.stringify(response.user));
-      setLoading(false);
-      navigate('/');
-      window.location.reload();
     } catch (err: unknown) {
       const message =
         err instanceof Error

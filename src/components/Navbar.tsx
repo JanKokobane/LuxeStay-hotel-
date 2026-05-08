@@ -36,9 +36,7 @@ export default function Navbar() {
               </div>
               Hi, {user.name?.split(' ')[0]}
             </Link>
-            <button onClick={handleLogout} className={styles.logoutBtn} title="Log out">
-              <LogOut size={20} />
-            </button>
+            
           </div>
         ) : (
           <div className={styles.userSection}>
