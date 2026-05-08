@@ -1,10 +1,12 @@
-import React  from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
-import { User, LogOut, Search, Star } from 'lucide-react';
+import { LogOut } from 'lucide-react';
 
 export default function Navbar() {
-  const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!) : null;
+  const user = localStorage.getItem('user')
+    ? JSON.parse(localStorage.getItem('user')!)
+    : null;
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -40,8 +42,20 @@ export default function Navbar() {
           </div>
         ) : (
           <div className={styles.userSection}>
-            <Link to="/auth" className={`${styles.btn} ${styles.btnOutline}`}>Sign up</Link>
-            <Link to="/auth" className={`${styles.btn} ${styles.btnPrimary}`}>Log in</Link>
+            <Link
+              to="/auth"
+              state={{ mode: 'signup' }}
+              className={`${styles.btn} ${styles.btnOutline}`}
+            >
+              Sign up
+            </Link>
+            <Link
+              to="/auth"
+              state={{ mode: 'login' }}
+              className={`${styles.btn} ${styles.btnPrimary}`}
+            >
+              Log in
+            </Link>
           </div>
         )}
       </div>

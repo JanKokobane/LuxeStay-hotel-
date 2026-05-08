@@ -171,3 +171,32 @@ export const paymentApi = {
   createPaymentIntent: (amount: number) => apiFetch('/create-payment-intent', { method: 'POST', body: JSON.stringify({ amount }) }),
 };
 
+export const adminApi = {
+  getUsers: async () => {
+    const response = await fetch(
+      'https://luxestay-hotel-gppc.onrender.com/api/admin/users'
+    );
+
+    return response.json();
+  },
+
+  getBookings: async () => {
+    const response = await fetch(
+      'https://luxestay-hotel-gppc.onrender.com/api/admin/bookings'
+    );
+
+    return response.json();
+  },
+
+  deleteUser: async (id: string | number) => {
+    const response = await fetch(
+      `https://luxestay-hotel-gppc.onrender.com/api/admin/users/${id}`,
+      {
+        method: 'DELETE',
+      }
+    );
+
+    return response.json();
+  },
+};
+
