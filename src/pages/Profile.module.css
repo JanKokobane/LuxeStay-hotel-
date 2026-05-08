@@ -197,6 +197,7 @@
   position: relative;
   overflow: hidden;
 }
+
 .promoBadge {
   display: inline-block;
   font-size: 0.625rem;
@@ -209,8 +210,19 @@
   border-radius: 999px;
   margin-bottom: 0.75rem;
 }
-.promoTitle { font-weight: 900; font-size: 0.95rem; margin-bottom: 0.25rem; }
-.promoText { font-size: 0.75rem; color: #cbd5e1; margin-bottom: 0.85rem; }
+
+.promoTitle {
+  font-weight: 900;
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.promoText {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  margin-bottom: 0.85rem;
+}
+
 .promoBtn {
   width: 100%;
   background: #fff;
@@ -225,7 +237,38 @@
   cursor: pointer;
   transition: transform 0.15s;
 }
-.promoBtn:hover { transform: translateY(-1px); }
+
+.promoBtn:hover {
+  transform: translateY(-1px);
+}
+
+/* ✅ Mobile adjustments */
+@media (max-width: 640px) {
+  .sidebarPromo {
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+  }
+
+  .promoBadge {
+    font-size: 0.55rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .promoTitle {
+    font-size: 0.5rem;
+  }
+
+  .promoText {
+    font-size: 0.65rem;
+  }
+
+  .promoBtn {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.65rem;
+    border-radius: 0.6rem;
+  }
+}
+
 
 .sidebarDivider {
   margin-top: 0.5rem;

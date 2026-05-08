@@ -198,7 +198,12 @@ export default function Profile() {
             <div className={styles.promoBadge}>LuxeStay+</div>
             <p className={styles.promoTitle}>Unlock member-only rates</p>
             <p className={styles.promoText}>Save up to 25% on featured stays.</p>
-            <button className={styles.promoBtn}>Explore</button>
+            <button
+              className={styles.promoBtn}
+              onClick={() => navigate('/rooms')}
+            >
+              Book your stay
+            </button>
           </div>
 
           <div className={styles.sidebarDivider}>
