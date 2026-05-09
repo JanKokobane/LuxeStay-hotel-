@@ -359,6 +359,7 @@ if (loadingBookings) {
                 <option>All Time</option>
               </select>
             </div>
+
             <ResponsiveContainer width="100%" height={280}>
               <LineChart data={revenueData}>
                 <defs>
@@ -391,110 +392,7 @@ if (loadingBookings) {
               </LineChart>
             </ResponsiveContainer>
             <div className={styles.chartFooter}>
-              <span className={styles.revenueAmount}>R198,300</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Charts Row 2 */}
-        <div className={styles.chartsRow}>
-          <div className={styles.chartCard}>
-            <div className={styles.chartHeader}>
-              <div>
-                <h3>Bookings</h3>
-                <p className={styles.chartSubtitle}>This Year</p>
-              </div>
-              <div className={styles.legendRow}>
-                <div className={styles.legendItem}>
-                  <span className={styles.legendDot} style={{ background: '#3b82f6' }}></span>
-                  <span>Booked</span>
-                </div>
-                <div className={styles.legendItem}>
-                  <span className={styles.legendDot} style={{ background: '#e5e7eb' }}></span>
-                  <span>Cancelled</span>
-                </div>
-              </div>
-            </div>
-            <ResponsiveContainer width="100%" height={280}>
-              <BarChart data={bookingsMonthly}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" vertical={false} />
-                <XAxis dataKey="month" stroke="#9ca3af" fontSize={12} />
-                <YAxis stroke="#9ca3af" fontSize={12} />
-                <Tooltip 
-                  contentStyle={{ 
-                    background: 'white', 
-                    border: '1px solid #e5e7eb',
-                    borderRadius: '8px',
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
-                  }}
-                />
-                <Bar dataKey="booked" fill="#3b82f6" radius={[4, 4, 0, 0]} />
-                <Bar dataKey="cancelled" fill="#e5e7eb" radius={[4, 4, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-            <div className={styles.chartFooter}>
-              <div className={styles.bookingStats}>
-                <span>Booked: <strong>6,164</strong></span>
-                <span>Cancelled: <strong>926</strong></span>
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.chartCard}>
-            <div className={styles.chartHeader}>
-              <div>
-                <h3>Bookings by Platform</h3>
-                <p className={styles.chartSubtitle}>This Week</p>
-              </div>
-              <select className={styles.chartSelect}>
-                <option>This Week</option>
-                <option>This Month</option>
-                <option>This Year</option>
-              </select>
-            </div>
-            <div className={styles.donutContainer}>
-              <ResponsiveContainer width="100%" height={240}>
-                <PieChart>
-                  <Pie
-                    data={platformData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={60}
-                    outerRadius={90}
-                    paddingAngle={2}
-                    dataKey="value"
-                  >
-                    {platformData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                  <Tooltip 
-                    contentStyle={{ 
-                      background: 'white', 
-                      border: '1px solid #e5e7eb',
-                      borderRadius: '8px',
-                      boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
-                    }}
-                  />
-                </PieChart>
-              </ResponsiveContainer>
-              <div className={styles.donutCenter}>
-                <div className={styles.donutValue}>{totalPlatformBookings.toLocaleString()}</div>
-                <div className={styles.donutLabel}>Total Bookings</div>
-              </div>
-            </div>
-            <div className={styles.platformLegend}>
-              {platformData.map((platform, index) => (
-                <div key={index} className={styles.platformItem}>
-                  <div className={styles.platformInfo}>
-                    <span className={styles.platformDot} style={{ background: platform.color }}></span>
-                    <span className={styles.platformName}>{platform.name} ({platform.value})</span>
-                  </div>
-                  <span className={styles.platformPercent}>
-                    {((platform.value / totalPlatformBookings) * 100).toFixed(0)}%
-                  </span>
-                </div>
-              ))}
+              <span className={styles.revenueAmount}>R12300</span>
             </div>
           </div>
         </div>
@@ -633,30 +531,7 @@ if (loadingBookings) {
           </div>
         </div>
 
-        {/* Recent Activity */}
-        <div className={styles.widget}>
-          <div className={styles.widgetHeader}>
-            <h3>Recent Activity</h3>
-            <button className={styles.seeAllLink}>See All</button>
-          </div>
-          <div className={styles.activityList}>
-            {recentActivities.map((activity) => {
-              const Icon = activity.icon;
-              return (
-                <div key={activity.id} className={styles.activityItem}>
-                  <div className={styles.activityIcon} style={{ background: `${activity.color}15`, color: activity.color }}>
-                    <Icon size={18} />
-                  </div>
-                  <div className={styles.activityContent}>
-                    <div className={styles.activityMessage}>{activity.message}</div>
-                    <div className={styles.activityDetail}>{activity.detail}</div>
-                    <div className={styles.activityTime}>{activity.time}</div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        
       </div>
     </div>
   );

@@ -88,7 +88,7 @@ export const AdminLogin = () => {
         <div className={styles.formCard}>
           <div className={styles.formHeader}>
             <Text variant="h2">Welcome Back</Text>
-            <p className={styles.formSubtitle}>Sign in to manage Tango Hotel</p>
+            <p className={styles.formSubtitle}>Sign in to manage LuxeStay Hotel</p>
           </div>
 
           <form onSubmit={handleSubmit} className={styles.form}>
@@ -134,7 +134,7 @@ export const AdminLogin = () => {
         </div>
 
         <div className={styles.footer}>
-          <p>© 2025 Tango Hotel. All rights reserved.</p>
+          <p>© 2025 LuxeStay Hotel. All rights reserved.</p>
         </div>
       </div>
     </div>

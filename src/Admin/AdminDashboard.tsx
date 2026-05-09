@@ -5,13 +5,11 @@ import {
   Calendar,
   Users,
   Settings,
-  Bell,
   Search,
   Menu,
   X as CloseIcon,
   Star,
   FileText,
-  MessageSquare,
   DollarSign,
   BarChart3,
 } from "lucide-react";
@@ -19,15 +17,11 @@ import styles from "./AdminDashboard.module.css";
 import DashboardOverview from "./components/dashboard/DashboardOverview";
 import RoomsSection from "./components/dashboard/RoomsSection";
 import BookingsSection from "./components/dashboard/BookingsSection";
-import AnalyticsSection from "./components/dashboard/AnalyticsSection";
 import RoomModal from "./components/dashboard/RoomModal";
 import SettingsSection from "./components/dashboard/SettingsSection";
-import InvoicesSection from "./components/dashboard/InvoicesSection";
 import StaffsSection from "./components/dashboard/StaffsSection";
-import ReportsSection from "./components/dashboard/ReportsSection";
 import ReviewsSection from "./components/dashboard/ReviewsSection";
 import React from "react";
-import Logo from ".././assets/Logo.png";
 import { useNavigate } from "react-router-dom";
 
 type TabType =
@@ -98,8 +92,6 @@ function AdminDashboard() {
     switch (activeTab) {
       case "dashboard":
         return <DashboardOverview />;
-      case "analytics":
-        return <AnalyticsSection detailed />;
       case "rooms":
         return (
           <RoomsSection
@@ -113,12 +105,8 @@ function AdminDashboard() {
         return <BookingsSection />;
       case "staffs":
         return <StaffsSection />;
-      case "reports":
-        return <ReportsSection />;
       case "reviews":
         return <ReviewsSection />;
-      case "invoices":
-        return <InvoicesSection />;
       case "settings":
         return <SettingsSection />;
       default:
@@ -144,14 +132,10 @@ function AdminDashboard() {
         return "Rooms";
       case "staffs":
         return "Staffs";
-      case "analytics":
-        return "Analytics";
       case "reports":
         return "Reports";
       case "reviews":
         return "Reviews";
-      case "invoices":
-        return "Invoices";
       case "settings":
         return "Settings";
       default:
@@ -198,7 +182,7 @@ function AdminDashboard() {
       <aside className={`${styles.sidebar} ${sidebarOpen ? styles.open : ""}`}>
         <div className={styles.sidebarHeader}>
           <div className={styles.logo}>
-            <img src={Logo} alt="Logo" />
+            LuxeStay
           </div>
           <button
             className={styles.mobileCloseBtn}
@@ -257,30 +241,10 @@ function AdminDashboard() {
             <Users className={styles.navIcon} />
             <span>Staffs</span>
           </div>
-          <div
-            className={`${styles.navItem} ${
-              activeTab === "analytics" ? styles.active : ""
-            }`}
-            onClick={() => {
-              setActiveTab("analytics");
-              setSidebarOpen(false);
-            }}
-          >
-            <BarChart3 className={styles.navIcon} />
-            <span>Analytics</span>
-          </div>
-          <div
-            className={`${styles.navItem} ${
-              activeTab === "reports" ? styles.active : ""
-            }`}
-            onClick={() => {
-              setActiveTab("reports");
-              setSidebarOpen(false);
-            }}
-          >
-            <FileText className={styles.navIcon} />
-            <span>Reports</span>
-          </div>
+
+
+         
+
           <div
             className={`${styles.navItem} ${
               activeTab === "reviews" ? styles.active : ""
@@ -293,18 +257,7 @@ function AdminDashboard() {
             <Star className={styles.navIcon} />
             <span>Reviews</span>
           </div>
-          <div
-            className={`${styles.navItem} ${
-              activeTab === "invoices" ? styles.active : ""
-            }`}
-            onClick={() => {
-              setActiveTab("invoices");
-              setSidebarOpen(false);
-            }}
-          >
-            <DollarSign className={styles.navIcon} />
-            <span>Invoices</span>
-          </div>
+
           <div
             className={`${styles.navItem} ${
               activeTab === "settings" ? styles.active : ""
@@ -343,16 +296,8 @@ function AdminDashboard() {
           </div>
 
           <div className={styles.topBarRight}>
-            {/* <button className={styles.iconButton}>
-              <MessageSquare size={20} />
-            </button>
-            <button className={styles.iconButton}>
-              <Bell size={20} />
-              <span className={styles.notificationBadge}>2</span>
-            </button> */}
-
+           
             <div className={styles.userProfile}>
-              {/* <div className={styles.adminAvatar}>{adminInitials}</div> */}
               <div className={styles.userInfo}>
                 <div className={styles.userName}>{adminName}</div>
                 <div className={styles.userRole}>Admin</div>

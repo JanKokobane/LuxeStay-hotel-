@@ -107,7 +107,7 @@ export const Register = () => {
           <div className={styles.formHeader}>
             <Text variant="h2">Create Admin Account</Text>
             <p className={styles.formSubtitle}>
-              Register to manage Tango Hotel
+              Register to manage LuxeStay Hotel
             </p>
           </div>
 
@@ -172,7 +172,7 @@ export const Register = () => {
         </div>
 
         <div className={styles.footer}>
-          <p>© 2025 Tango Hotel. All rights reserved.</p>
+          <p>© 2025 LuxeStay Hotel. All rights reserved.</p>
         </div>
       </div>
     </div>
