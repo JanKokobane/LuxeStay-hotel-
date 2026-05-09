@@ -14,7 +14,6 @@ import LatestNewsEvents from "./Components/NewsEvents/LatestNewsEvents";
 import BlogNewYearsGala from "./Components/NewsEvents/Blog/BlogNewYearsGala";
 import BlogWinePairing from "./Components/NewsEvents/Blog/BlogWinePairing";
 import BlogHiddenGems from "./Components/NewsEvents/Blog/BlogHiddenGems";
-import ContactUs from "./Components/ContactUs/ContactUs";
 import Footer from "./Components/Footer/Footer";
 import Login from "./Pages/Login";
 import RattingAndFAQ from "./Components/RatingsAndFAQ/RatingsAndFAQ";
@@ -54,7 +53,6 @@ function PublicLayout() {
               <LatestNewsEvents />
               <Gallery />
               <RattingAndFAQ />
-              <ContactUs />
               {!isAuthPage && <Footer />}
               <ScrollToHash />
             </>
