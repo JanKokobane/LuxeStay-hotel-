@@ -1,0 +1,111 @@
+.calendar {
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.monthYear {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.navButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.navButton:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.weekday {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: #64748b;
+  padding: 4px 0;
+  text-transform: uppercase;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.emptyDay {
+  aspect-ratio: 1;
+}
+
+.day {
+  aspect-ratio: 1;
+  border: none;
+  background: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.day:hover:not(:disabled) {
+  background: #f1f5f9;
+}
+
+.day.selected {
+  background: #1e293b;
+  color: white;
+  font-weight: 600;
+}
+
+.day.disabled {
+  color: #cbd5e1;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .calendar {
+    padding: 10px;
+  }
+
+  .monthYear {
+    font-size: 12px;
+  }
+
+  .weekday {
+    font-size: 9px;
+  }
+
+  .day {
+    font-size: 11px;
+  }
+}

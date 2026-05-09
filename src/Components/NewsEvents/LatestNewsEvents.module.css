@@ -1,0 +1,276 @@
+.section {
+  position: relative;
+  padding: 120px 24px;
+  background: linear-gradient(180deg, #faf9f7 0%, #ffffff 50%, #f5f3f0 100%);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  margin-top: -3rem;
+}
+
+.header {
+  text-align: left; 
+  margin-bottom: 80px;
+  position: relative;
+  margin-left: 1.7rem;
+}
+
+.title {
+  font-size: 42px;
+  font-weight: 100;
+  color: #1a1a1ab9;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+
+.subtitle {
+  font-size: 12px;
+  color: #666;
+  max-width: 650px;
+  line-height: 1.7;
+}
+
+.eventsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.eventCard {
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    0 8px 24px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  height: 95%;
+  position: relative;
+}
+
+.eventCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #c9a961, #d4af37, #c9a961);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.eventCard:hover {
+  transform: translateY(-12px);
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 20px 40px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(212, 175, 55, 0.1);
+}
+
+.eventCard:hover::before {
+  opacity: 1;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  padding-top: 65%;
+  overflow: hidden;
+  background: #f5f3f0;
+}
+
+.eventImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.02) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.eventCard:hover .eventImage {
+  transform: scale(1.08);
+}
+
+.eventCard:hover .imageOverlay {
+  opacity: 1;
+}
+
+.dateTag {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  left: -0.3rem;
+  background: rgb(3, 112, 89);
+  backdrop-filter: blur(12px);
+  padding: 10px 20px;
+  border-radius: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #faf9f7;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-left: 2px solid #d4af37;
+}
+
+.content {
+  padding: 40px 36px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+.eventTitle {
+  font-size: 25px;
+  font-weight: 100;
+  color: #1a1a1ab9;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 12px;
+  color: #1a1a1ab9;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  min-height: 60px;
+}
+
+.readMoreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #2c24168c;
+  font-weight: 500;
+  font-size: 13px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 14px 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-top: 1px solid #e8e5e0;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.readMoreLink:hover {
+  color: #31271a4b;
+  padding-left: 8px;
+}
+
+.arrow {
+  font-size: 18px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #d4af37;
+}
+
+.readMoreLink:hover .arrow {
+  transform: translateX(8px);
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 80px 20px;
+  }
+
+  .title {
+    font-size: 44px;
+  }
+
+  .eventsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 16px;
+  }
+
+  .header {
+    margin-bottom: 56px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .eventsGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .eventTitle {
+    font-size: 24px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .content {
+    padding: 32px 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 48px 16px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .content {
+    padding: 28px 24px;
+  }
+
+  .eventTitle {
+    font-size: 22px;
+  }
+
+  .dateTag {
+    font-size: 11px;
+    padding: 8px 16px;
+  }
+}

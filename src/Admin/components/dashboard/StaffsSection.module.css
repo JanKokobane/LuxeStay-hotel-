@@ -1,0 +1,122 @@
+.section {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  
+  .sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .sectionTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+  }
+  
+  .searchBar {
+    margin-bottom: 16px;
+  }
+  
+  .searchWrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f3f4f6;
+    padding: 6px 12px;
+    border-radius: 8px;
+  }
+  
+  .searchInput {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 14px;
+    color: #374151;
+  }
+  
+  .reviewsTableWrapper {
+    overflow-x: auto;
+    width: 100%;
+  }
+  
+  .reviewsTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+  }
+  
+  .reviewsTable th {
+    background-color: #1f2937;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 14px 20px;
+    text-transform: uppercase;
+  }
+  
+  .reviewsTable td {
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #374151;
+    font-weight: 500;
+  }
+  
+  .reviewsTable tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+    transition: all 0.15s ease;
+  }
+  
+  .reviewsTable tbody tr:hover {
+    background-color: #fafbff;
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .deleteButton {
+    background-color: #ef4444;
+    color: #ffffff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+  }
+  
+  .deleteButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .emptyState {
+    text-align: center;
+    color: #9ca3af;
+    padding: 40px 0;
+  }
+  
+  .emptyState h3 {
+    margin-top: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #6b7280;
+  }
+  
+  .emptyState p {
+    font-size: 14px;
+    margin-top: 4px;
+    color: #9ca3af;
+  }
+  

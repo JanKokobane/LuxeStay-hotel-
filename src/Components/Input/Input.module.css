@@ -1,0 +1,51 @@
+.inputGroup {
+  margin-bottom: 1rem;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 2rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.inputWithIcon {
+  padding-left: 2.5rem;
+}
+
+.inputError {
+  border-color: #d9534f;
+}
+
+.icon {
+  position: absolute;
+  left: 0.5rem;
+  color: #888;
+}
+
+.togglePassword {
+  position: absolute;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+}
+
+.error {
+  color: #d9534f;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}

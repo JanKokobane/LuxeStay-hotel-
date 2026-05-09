@@ -1,51 +1,150 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Results from './pages/Results';
-import HotelDetail from './pages/HotelDetail';
-import Confirmation from './pages/Confirmation';
-import Auth from './pages/Auth';
-import Profile from './pages/Profile';
-import PopularRooms from './pages/PopularRooms';
-import Booking from './pages/Booking';
-import Payment from './pages/Payment';
-import AdminDashboard from './pages/admin/AdminDashboard';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import React from "react";
 
-function AppContent() {
+import Navbar from "./Components/Navbar/Navbar";
+import Hero from "./Pages/Hero";
+import { RoomsSection } from "./Components/RoomsSection/RoomsSection";
+import HotelAmenities from "./Components/HotelAmenities/HotelAmenities";
+import LatestNewsEvents from "./Components/NewsEvents/LatestNewsEvents";
+import BlogNewYearsGala from "./Components/NewsEvents/Blog/BlogNewYearsGala";
+import BlogWinePairing from "./Components/NewsEvents/Blog/BlogWinePairing";
+import BlogHiddenGems from "./Components/NewsEvents/Blog/BlogHiddenGems";
+import ContactUs from "./Components/ContactUs/ContactUs";
+import Footer from "./Components/Footer/Footer";
+import Login from "./Pages/Login";
+import RattingAndFAQ from "./Components/RatingsAndFAQ/RatingsAndFAQ";
+import Gallery from "./Components/Gallery/Gallery";
+import ScrollToHash from "./ScrollToHash";
+import Register from "./Pages/Register";
+import AdminReg from "./Admin/components/AdminReg/AdminReg";
+import { AdminLogin } from "./Admin/components/AdminReg/AdminLogin";
+import AdminDashboard from "./Admin/AdminDashboard";
+import ProtectedRoute from "./ProtectedRoute";
+import RoomsPage from "./Pages/RoomsPage/RoomsPage";
+import Profile from "./Profile/Profile";
+import AdminProtectedRoute from "./Admin/components/AdminProtectedRoute";
+import CheckoutPage from "./Pages/RoomsPage/PaymentGateWay/CheckoutPage"; 
+
+function PublicLayout() {
   const location = useLocation();
-  const hideNavbarOn = ['/profile', '/admin'];
-  const shouldHideNavbar = hideNavbarOn.some(path => location.pathname.startsWith(path));
+  const isAuthPage = [
+    "/login",
+    "/register",
+    "/admin/adminreg",
+    "/admin/login",
+    "/bookingfoom",
+  ].includes(location.pathname);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {!shouldHideNavbar && <Navbar />}
-      <main className="flex-grow">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/search" element={<Results />} />
-          <Route path="/popular" element={<PopularRooms />} />
-          <Route path="/hotel/:id" element={<HotelDetail />} />
-          <Route path="/book/:id" element={<Booking />} />
-          <Route path="/payment/:id" element={<Payment />} />
-          <Route path="/confirmation" element={<Confirmation />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/admin" element={<AdminDashboard />} />
-        </Routes>
-      </main>
-      {!shouldHideNavbar && <Footer />}
-    </div>
+    <>
+      {!isAuthPage && <Navbar />}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero />
+              <RoomsSection />
+              <HotelAmenities />
+              <LatestNewsEvents />
+              <Gallery />
+              <RattingAndFAQ />
+              <ContactUs />
+              {!isAuthPage && <Footer />}
+              <ScrollToHash />
+            </>
+          }
+        />
+        <Route
+          path="/blog/new-years-eve-gala"
+          element={
+            <>
+              <BlogNewYearsGala />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/blog/wine-pairing-masterclass"
+          element={
+            <>
+              <BlogWinePairing />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/blog/hidden-gems-guide"
+          element={
+            <>
+              <BlogHiddenGems />
+              <Footer />
+            </>
+          }
+        />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </>
   );
 }
 
-export default function App() {
+function App() {
   return (
     <Router>
-      <AppContent />
+      <Routes>
+
+        <Route path="/*" element={<PublicLayout />} />
+        <Route path="/rooms" element={<RoomsPage />} />
+
+        <Route path="/admin/adminreg" element={<AdminReg />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route
+          path="/admin/dashboard"
+          element={
+            <AdminProtectedRoute>
+              <AdminDashboard />
+            </AdminProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+       <Route
+  path="/checkout"
+  element={
+    <ProtectedRoute>
+      <CheckoutPage
+        onBack={() => window.history.back()}
+        onPaymentComplete={() => window.location.replace("/profile")} bookingData={{
+          id: "",
+          room_id: 0,
+          room_name: "",
+          full_name: "",
+          phone: "",
+          email: "",
+          check_in: "",
+          check_out: "",
+          total_price: "",
+          nights: 0
+        }}      />
+    </ProtectedRoute>
+  }
+/>
+      </Routes>
     </Router>
   );
 }
 
-
-
+export default App;

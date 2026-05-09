@@ -1,0 +1,523 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  z-index: 1000;
+  overflow-y: auto;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  background: white;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.closeButton {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+  background: #f5f5f5;
+  transform: rotate(90deg) scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.modalGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 0;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.leftColumn {
+  padding: 60px;
+  border-right: 1px solid #f0f0f0;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.mainImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detailsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.headerSection h2 {
+  margin: 0;
+}
+
+.modalTitle {
+  font-size: 32px;
+  font-weight: 300;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.ratingWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+}
+
+.ratingText {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.metaInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background: #f8f8f8;
+  border-radius: 12px;
+}
+
+.metaItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.metaItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.metaLabel {
+  font-size: 13px;
+  color: #666;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metaValue {
+  font-size: 14px;
+  color: #1a1a1a;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status {
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.statusAvailable {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.descriptionSection {
+  line-height: 1.8;
+}
+
+.description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.8;
+}
+
+.amenitiesSection {
+  margin-top: 8px;
+}
+
+.amenitiesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.amenityItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.amenityItem:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.reviewSection {
+  padding-top: 32px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.reviewForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reviewInput {
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.reviewInput:focus {
+  border-color: goldenrod;
+}
+
+.ratingInput {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ratingInput label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+}
+
+.interactiveStars {
+  display: flex;
+  gap: 4px;
+}
+
+.reviewTextarea {
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.3s ease;
+  resize: vertical;
+}
+
+.reviewTextarea:focus {
+  border-color: goldenrod;
+}
+
+.submitReviewBtn {
+  padding: 12px 24px;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.submitReviewBtn:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.rightColumn {
+  padding: 60px;
+  background: #fafafa;
+}
+
+.bookingCard {
+  position: sticky;
+  top: 100px;
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.priceHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.price {
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+}
+
+.priceLabel {
+  font-size: 14px;
+  color: #999;
+}
+
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.formInput,
+.formSelect {
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  background: white;
+}
+
+.formInput:focus,
+.formSelect:focus {
+  border-color: goldenrod;
+}
+
+.formSelect {
+  cursor: pointer;
+}
+
+.priceBreakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 0;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.breakdownRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #666;
+}
+
+.breakdownRow.total {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-top: 8px;
+}
+
+.bookNowBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 24px;
+  background: goldenrod;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+
+.bookNowBtn:hover {
+  background: #d4a825;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(218, 165, 32, 0.3);
+}
+
+.bookNowBtn:active {
+  transform: translateY(0);
+}
+
+.bookingNote {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  margin-top: -8px;
+}
+
+@media (max-width: 968px) {
+  .modalGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .leftColumn {
+    border-right: none;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .rightColumn {
+    background: white;
+  }
+
+  .bookingCard {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .leftColumn,
+  .rightColumn {
+    padding: 24px;
+  }
+
+  .modalTitle {
+    font-size: 24px;
+  }
+
+  .imageContainer {
+    height: 250px;
+  }
+
+  .amenitiesList {
+    grid-template-columns: 1fr;
+  }
+
+  .price {
+    font-size: 28px;
+  }
+}
+
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.918);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popupContent {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  text-align: center;
+  max-width: 400px;
+}
+
+.popupContent h2 {
+  margin-bottom: 1rem;
+  color: #1f2937; 
+}
+
+.popupContent p {
+  margin-bottom: 1.5rem;
+  color: #374151; 
+}
+
+.popupCloseBtn {
+  background-color: #03060a; 
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 1px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.popupCloseBtn:hover {
+  background-color: #2563eb;
+}

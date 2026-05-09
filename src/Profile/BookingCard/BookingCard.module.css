@@ -1,0 +1,307 @@
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #f0f0f0;
+}
+
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  backdrop-filter: blur(10px);
+  z-index: 1;
+}
+
+.favoriteButton {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  color: #6b7280;
+  backdrop-filter: blur(10px);
+}
+
+.favoriteButton:hover {
+  transform: scale(1.1);
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.favoriteActive {
+  color: #ef4444;
+  background: rgba(254, 226, 226, 0.95);
+}
+
+.favoriteActive:hover {
+  background: #fee2e2;
+}
+
+.badgeUpcoming {
+  background: rgba(16, 185, 129, 0.95);
+  color: #ffffff;
+}
+
+.badgeCompleted {
+  background: rgba(59, 130, 246, 0.95);
+  color: #ffffff;
+}
+
+.badgeCancelled {
+  background: rgba(239, 68, 68, 0.95);
+  color: #ffffff;
+}
+
+.details {
+  padding: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.roomInfo h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.roomLocation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.roomLocation svg {
+  flex-shrink: 0;
+}
+
+.priceContainer {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 700;
+  color: #059669;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.priceLabel {
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 4px 0 0 0;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.infoIcon {
+  color: #3b82f6;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.infoLabel {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #9ca3af;
+  margin: 0 0 4px 0;
+}
+
+.infoValue {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+:global(.dark) .card {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+:global(.dark) .roomInfo h3 {
+  color: #f9fafb;
+}
+
+:global(.dark) .roomLocation {
+  color: #9ca3af;
+}
+
+:global(.dark) .infoValue {
+  color: #f3f4f6;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .priceContainer {
+    text-align: left;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .imageContainer {
+    height: 180px;
+  }
+}
+
+.paymentStatus {
+  font-weight: 600;
+  margin-top: 12px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+
+.paymentPaid {
+  background-color: #12c73d;
+  color: #ffffff;
+}
+
+.paymentPending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.payNowButton {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: goldenrod;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 0.3rem;
+  transition: background-color 0.3s ease;
+}
+
+.payNowButton:hover {
+  background-color: gold;
+}
+
+.cancelButton {
+  background-color: #fee2e2;
+  margin-left: 0.3rem;
+  color: #991b1b;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.cancelButton:hover {
+  background-color: #fecaca;
+}
+
+.deleteButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: #e63946; 
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.deleteButton:hover {
+  background-color: #d62828;
+  transform: scale(1.02);
+}
+
+.deleteButton:active {
+  background-color: #c1121f;
+  transform: scale(0.98);
+}
+
+.deleteButton:focus {
+  outline: 2px solid #fca311;
+  outline-offset: 2px;
+}
+

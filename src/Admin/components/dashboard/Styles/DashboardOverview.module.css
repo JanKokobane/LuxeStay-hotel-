@@ -1,0 +1,761 @@
+.dashboardOverview {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+}
+
+@media (min-width: 1200px) {
+  .dashboardOverview {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 24px;
+  }
+}
+
+.mainSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.statsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.statsGrid > * {
+  flex: 1 1 calc(50% - 8px);
+  min-width: 250px;
+}
+
+@media (min-width: 1024px) {
+  .statsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .statsGrid > * {
+    flex: initial;
+    min-width: initial;
+  }
+}
+
+.statCard {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .statCard {
+    padding: 20px;
+  }
+}
+
+.statCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.statHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.statLabel {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.moreButton {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.moreButton:hover {
+  color: #64748b;
+}
+
+.statValue {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .statValue {
+    font-size: 28px;
+  }
+}
+
+.statChange {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.statChange.positive {
+  color: #22c55e;
+}
+
+.statChange.negative {
+  color: #ef4444;
+}
+
+.statSubtitle {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.chartsRow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .chartsRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+.chartCard {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 768px) {
+  .chartCard {
+    padding: 24px;
+  }
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.chartHeader h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 4px 0;
+}
+
+.chartSubtitle {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.chartSelect {
+  padding: 6px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #64748b;
+  background: white;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.chartSelect:hover {
+  border-color: #cbd5e1;
+}
+
+.chartFooter {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.guestCount,
+.revenueAmount {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.bookingStats {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.bookingStats strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.legendRow {
+  display: flex;
+  gap: 20px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.donutContainer {
+  position: relative;
+  height: 240px;
+}
+
+.donutCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.donutValue {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.donutLabel {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+.platformLegend {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.platformItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.platformInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.platformDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.platformName {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.platformPercent {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.tableSection {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 768px) {
+  .tableSection {
+    padding: 24px;
+  }
+}
+
+.tablHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tablHeader h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.tableActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .tableActions {
+    gap: 12px;
+  }
+}
+
+.tableSelect {
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #64748b;
+  background: white;
+  cursor: pointer;
+  outline: none;
+}
+
+.seeAllButton {
+  padding: 8px 16px;
+  background: none;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.seeAllButton:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.bookingTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bookingTable thead tr {
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.bookingTable th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bookingTable td {
+  padding: 16px;
+  border-bottom: 1px solid #f8fafc;
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.bookingTable tbody tr {
+  transition: all 0.2s ease;
+}
+
+.bookingTable tbody tr:hover {
+  background: #f8fafc;
+}
+
+.statusBadge {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.statusBadge.confirmed {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+}
+
+.statusBadge.pending {
+  background: rgba(234, 179, 8, 0.1);
+  color: #eab308;
+}
+
+.statusBadge.cancelled {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+/* Right Sidebar */
+.rightSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.widget {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 768px) {
+  .widget {
+    padding: 24px;
+  }
+}
+
+.widgetHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.widgetHeader h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.seeAllLink {
+  font-size: 13px;
+  font-weight: 500;
+  color: #3b82f6;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.seeAllLink:hover {
+  text-decoration: underline;
+}
+
+/* Room Occupancy Widget */
+.occupancyMain {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.occupancyIcon {
+  width: 64px;
+  height: 64px;
+  background: #f0f9ff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+  margin: 0 auto 16px;
+}
+
+.occupancyValue {
+  font-size: 40px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.occupancyLabel {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.occupancyBar {
+  height: 12px;
+  background: #f1f5f9;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.occupancySegment {
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.occupancyStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.occupancyStats > * {
+  flex: 1 1 calc(50% - 6px);
+  min-width: 120px;
+}
+
+@media (min-width: 768px) {
+  .occupancyStats {
+    gap: 16px;
+  }
+}
+
+.occupancyStat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.occupancyDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.occupancyNumber {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.occupancyText {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* Ratings Widget */
+.ratingsMain {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.overallScore {
+  width: 80px;
+  height: 80px;
+  background: #f0f9ff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #3b82f6;
+}
+
+.ratingLabel {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.ratingCount {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.ratingsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ratingItem {
+  display: grid;
+  grid-template-columns: 80px 1fr 40px;
+  gap: 12px;
+  align-items: center;
+}
+
+.ratingCategory {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.ratingBarContainer {
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.ratingBar {
+  height: 100%;
+  background: #3b82f6;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.ratingScore {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  text-align: right;
+}
+
+/* Activity Widget */
+.activityList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.activityItem {
+  display: flex;
+  gap: 12px;
+}
+
+.activityIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.activityContent {
+  flex: 1;
+}
+
+.activityMessage {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.activityDetail {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.activityTime {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+  .dashboardOverview {
+    grid-template-columns: 1fr 320px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .dashboardOverview {
+    flex-direction: column;
+  }
+
+  .rightSidebar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .statsGrid > * {
+    flex: 1 1 100%;
+  }
+
+  .chartHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .bookingStats {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .legendRow {
+    flex-wrap: wrap;
+  }
+
+  .platformLegend {
+    margin-top: 16px;
+  }
+
+  .tablHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .rightSidebar {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .statValue {
+    font-size: 20px;
+  }
+
+  .chartHeader h3 {
+    font-size: 14px;
+  }
+
+  .guestCount,
+  .revenueAmount {
+    font-size: 18px;
+  }
+
+  .occupancyValue {
+    font-size: 32px;
+  }
+
+  .overallScore {
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
+  }
+
+  .tableSelect,
+  .seeAllButton {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}

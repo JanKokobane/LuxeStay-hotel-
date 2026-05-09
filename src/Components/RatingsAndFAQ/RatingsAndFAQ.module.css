@@ -1,0 +1,240 @@
+.section {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+}
+
+.ratingsSection {
+  margin-bottom: 80px;
+}
+
+.header {
+  text-align: left;
+  margin-bottom: 60px;
+}
+
+.heading {
+  font-size: 42px;
+  font-weight: 100;
+  color: #1a1a1ab9;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin-left: 3.5rem;
+}
+
+.description {
+  font-size: 12px;
+  color: #666;
+  max-width: 650px;
+  line-height: 1.7;
+  margin-left: 3.5rem;
+}
+
+.ratingSummary {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.ratingScore {
+  text-align: center;
+}
+
+.scoreNumber {
+  display: block;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #d4af37;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.starsWrapper {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.starFilled {
+  color: #0505039c;
+}
+
+.starEmpty {
+  color: #ddd;
+}
+
+.reviewCount {
+  display: block;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.reviewCard {
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reviewCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.reviewerName {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.roomType {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.reviewDate {
+  font-size: 0.875rem;
+  color: #999;
+}
+
+.reviewStars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.reviewComment {
+  font-size: 0.9375rem;
+  color: #444;
+  line-height: 1.7;
+}
+
+.faqSection {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faqItem {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.faqItem:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.faqQuestion {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 28px;
+  background: white;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: #1a1a1a77;
+  transition: background-color 0.2s ease;
+}
+
+.faqQuestion:hover {
+  background: #f8f9fa;
+}
+
+.faqQuestion[aria-expanded="true"] {
+  background: #f8f9fa;
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: #d4af37;
+  transition: transform 0.3s ease;
+}
+
+.faqAnswer {
+  padding: 0 28px 24px;
+  animation: slideDown 0.3s ease;
+}
+
+.faqAnswer p {
+  font-size: 0.9375rem;
+  color: #555;
+  line-height: 1.7;
+  margin: 0;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 16px;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .scoreNumber {
+    font-size: 3rem;
+  }
+
+  .reviewsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .faqQuestion {
+    font-size: 1rem;
+    padding: 20px;
+  }
+
+  .faqAnswer {
+    padding: 0 20px 20px;
+  }
+}

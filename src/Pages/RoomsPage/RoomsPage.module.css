@@ -1,0 +1,590 @@
+.pageContainer {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #fafafa 0%, #ffffff 100%);
+}
+
+.section {
+  padding: 80px 20px;
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  margin-bottom: 48px;
+}
+
+.headerContent {
+  max-width: 800px;
+}
+
+.heading {
+  font-size: 42px;
+  font-weight: 100;
+  color: #1a1a1ab9;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* Search Section */
+.searchSection {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.searchBar {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0 16px;
+  transition: all 0.3s ease;
+}
+
+.searchBar:focus-within {
+  border-color: goldenrod;
+  box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.1);
+}
+
+.searchIcon {
+  color: #999;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 14px 12px;
+  font-size: 14px;
+  background: transparent;
+}
+
+.clearBtn {
+  background: transparent;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.clearBtn:hover {
+  color: #333;
+}
+
+.filterToggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.filterToggle:hover {
+  border-color: goldenrod;
+  color: goldenrod;
+}
+
+/* Filter Panel */
+.filterPanel {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.filterGroup {
+  flex: 1;
+  min-width: 200px;
+}
+
+.filterLabel {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.priceInputs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.priceInput {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.priceInput:focus {
+  border-color: goldenrod;
+}
+
+.filterSelect {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  background: white;
+  transition: border-color 0.3s ease;
+}
+
+.filterSelect:focus {
+  border-color: goldenrod;
+}
+
+.resetBtn {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  align-self: flex-end;
+}
+
+.resetBtn:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+/* Results Bar */
+.resultsBar {
+  margin-bottom: 32px;
+}
+
+.resultsCount {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Status Messages */
+.status,
+.error {
+  text-align: center;
+  padding: 40px;
+  font-size: 16px;
+}
+
+.status {
+  color: #666;
+}
+
+.error {
+  color: #d32f2f;
+  background: #ffebee;
+  border-radius: 8px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 32px;
+}
+
+/* Card */
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  border-color: rgba(218, 165, 32, 0.3);
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover .image {
+  transform: scale(1.1);
+}
+
+.badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgb(3, 112, 89);
+  color: white;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.featuredBadge {
+  background: goldenrod;
+}
+
+/* Card Content */
+.cardContent {
+  padding: 24px;
+}
+
+.cardHeader {
+  margin-bottom: 12px;
+}
+
+.roomTitle {
+  font-size: 22px;
+  font-weight: 300;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+}
+
+.ratingWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.ratingText {
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+}
+
+.roomMeta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.roomType {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: goldenrod;
+  letter-spacing: 0.5px;
+}
+
+.capacity {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #666;
+}
+
+.roomDescription {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  min-height: 42px;
+}
+
+/* Amenities */
+.amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.amenityTag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #f8f8f8;
+  border-radius: 6px;
+  font-size: 11px;
+  color: #666;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.amenityTag:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+/* Card Footer */
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.priceWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: 300;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+}
+
+.priceLabel {
+  font-size: 12px;
+  color: #999;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.detailsBtn {
+  padding: 10px 20px;
+  background: transparent;
+  color: #1a1a1a;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.detailsBtn:hover {
+  background: #f8f8f8;
+  border-color: #999;
+  transform: translateY(-1px);
+}
+
+.bookButton {
+  padding: 12px 20px;
+  background: goldenrod;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.bookButton:hover {
+  background: #d4a825;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(218, 165, 32, 0.3);
+}
+
+.bookButton:active {
+  transform: translateY(0);
+}
+
+/* No Results */
+.noResults {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.noResults p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 16px;
+  }
+
+  .heading {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .description {
+    text-align: center;
+  }
+
+  .searchSection {
+    flex-direction: column;
+  }
+
+  .searchBar {
+    min-width: 100%;
+  }
+
+  .filterToggle {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .filterPanel {
+    flex-direction: column;
+  }
+
+  .filterGroup {
+    min-width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .cardFooter {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actionButtons {
+    width: 100%;
+  }
+
+  .detailsBtn,
+  .bookButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 425px) {
+  .heading {
+    font-size: 28px;
+  }
+
+  .price {
+    font-size: 24px;
+  }
+}
+
+.bookingFormOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.bookedBadge {
+  background-color: #d9534f;
+  color: white;
+}
+
+.bookButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.backButtonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end; 
+  margin-bottom: 20px;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px 14px;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.backButton:hover {
+  opacity: 0.7;
+}
