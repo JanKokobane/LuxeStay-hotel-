@@ -45,7 +45,7 @@ const CheckoutPage = ({
 
   const bankDetails = {
     bankName: "First National Bank",
-    accountName: "Tango Hotel Ltd",
+    accountName: "LuxeStay Hotel Ltd",
     accountNumber: "62847593012",
     branchCode: "250655",
     accountType: "Business Current",
