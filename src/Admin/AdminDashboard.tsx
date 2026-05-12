@@ -256,20 +256,10 @@ function AdminDashboard() {
           >
             <Star className={styles.navIcon} />
             <span>Reviews</span>
+
           </div>
 
-          <div
-            className={`${styles.navItem} ${
-              activeTab === "settings" ? styles.active : ""
-            }`}
-            onClick={() => {
-              setActiveTab("settings");
-              setSidebarOpen(false);
-            }}
-          >
-            <Settings className={styles.navIcon} />
-            <span>Settings</span>
-          </div>
+          
         </nav>
       </aside>
 

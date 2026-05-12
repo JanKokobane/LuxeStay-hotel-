@@ -29,7 +29,7 @@ declare global {
         ) => Promise<string>;
         onApprove: (
           data: { orderID: string },
-          actions: { order: { capture: () => Promise<unknown> } }
+          actions: { order: { capture: () => Promise<any> } }
         ) => Promise<void>;
         onError?: (err: Error) => void;
       }) => { render: (selector: string) => Promise<void> };
@@ -39,7 +39,7 @@ declare global {
 
 function PayPalButton({ amount, onSuccess, bookingData }: PayPalButtonProps) {
   useEffect(() => {
-    let initialized = false; // guard against double initialization in Strict Mode
+    let initialized = false;
 
     const renderPayPalButton = () => {
       if (!window.paypal || initialized) return;
@@ -52,12 +52,10 @@ function PayPalButton({ amount, onSuccess, bookingData }: PayPalButtonProps) {
           }),
         onApprove: async (data, actions) => {
           const details = await actions.order.capture();
-          console.log("Payment successful:", details);
-          console.log("Payment verified successfully, sending to backend");
-          console.log("Sending bookingData:", bookingData);
+          console.log("💳 Payment captured:", details);
 
           try {
-            await fetch(
+            const res = await fetch(
               "https://tango-hotel-backend.onrender.com/api/payments/verify-payment",
               {
                 method: "POST",
@@ -65,11 +63,16 @@ function PayPalButton({ amount, onSuccess, bookingData }: PayPalButtonProps) {
                 body: JSON.stringify({ orderID: data.orderID, bookingData }),
               }
             );
+
+            if (!res.ok) throw new Error("Backend verification failed");
+            const result = await res.json();
+            console.log("✅ Backend verified:", result);
+
             onSuccess();
           } catch (error) {
             console.error("Failed to confirm booking:", error);
             alert(
-              "Payment successful but failed to confirm booking. Please contact support."
+              "Payment captured but booking confirmation failed. Please contact support."
             );
           }
         },
@@ -98,7 +101,7 @@ function PayPalButton({ amount, onSuccess, bookingData }: PayPalButtonProps) {
         if (script.parentNode) script.parentNode.removeChild(script);
       };
     }
-  }, []); // run once
+  }, []);
 
   return <div id="paypal-button-container"></div>;
 }
