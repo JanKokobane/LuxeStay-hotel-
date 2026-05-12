@@ -139,20 +139,12 @@ const predefinedAmenities = [
 
       if (!res.ok) throw new Error('Failed to save room');
 
-let savedRoom;
+const data = await res.json();
 
-if (room) {
-  // EDIT MODE
-  savedRoom = {
-    ...roomData,
-    id: room.id
-  };
-} else {
-  // CREATE MODE
-  savedRoom = await res.json();
-}
+const savedRoom = data.room ?? data;
 
 onSave(savedRoom);
+
 
       setShowSuccess(true);
       setTimeout(() => {
