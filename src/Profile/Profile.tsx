@@ -715,7 +715,7 @@ export default function Profile() {
                     className={styles.editButton}
                     onClick={() => setCurrentTab("settings")}
                   >
-                    <Edit size={16} />
+                    {/* <Edit size={16} /> */}
                   </button>
                 </div>
                 <div className={styles.locationRow}>
@@ -940,7 +940,7 @@ export default function Profile() {
                 </div>
 
                 <div className={styles.formActions}>
-                  <button
+                  {/* <button
                     className={styles.saveButton}
                     onClick={handleSaveSettings}
                     disabled={isSaving}
@@ -953,7 +953,7 @@ export default function Profile() {
                     ) : (
                       "Save Changes"
                     )}
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>

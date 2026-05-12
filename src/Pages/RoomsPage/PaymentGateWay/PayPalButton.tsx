@@ -51,8 +51,8 @@ function PayPalButton({ amount, onSuccess, bookingData }: PayPalButtonProps) {
             purchase_units: [{ amount: { value: amount } }],
           }),
         onApprove: async (data, actions) => {
-          const details = await actions.order.capture();
-          console.log("💳 Payment captured:", details);
+          const order = await actions.order.capture(); // capture finalizes payment
+          console.log("💳 Payment captured:", order);
 
           try {
             const res = await fetch(
@@ -60,7 +60,7 @@ function PayPalButton({ amount, onSuccess, bookingData }: PayPalButtonProps) {
               {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ orderID: data.orderID, bookingData }),
+                body: JSON.stringify({ orderID: order.id, bookingData }), // use order.id
               }
             );
 

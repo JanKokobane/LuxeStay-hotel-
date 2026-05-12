@@ -139,7 +139,7 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.editButton {
+/* .editButton {
   width: 32px;
   height: 32px;
   border-radius: 6px;
@@ -157,7 +157,7 @@
 .editButton:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: scale(1.05);
-}
+} */
 
 .locationRow {
   display: flex;
